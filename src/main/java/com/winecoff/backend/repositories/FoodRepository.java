@@ -9,5 +9,8 @@ import com.winecoff.backend.models.Food;
 
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Integer> {
+	
 	List<Food> findByName(String name); 
+	List<Food> findByCategory(String category);
+	
 }
