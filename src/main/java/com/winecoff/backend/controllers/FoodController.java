@@ -40,9 +40,10 @@ public class FoodController {
 		return (List<Food>) foodRepo.findByCategory(category); 
 	}
 
+
 //	Get food item by id
 	@GetMapping("food/{id}")
-	public ResponseEntity<Food> getStudentById(@PathVariable int id){
+	public ResponseEntity<Food> getFoodById(@PathVariable int id){
 		Food food = foodRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Food not found.")); 
 		return ResponseEntity.ok(food); 
@@ -52,7 +53,7 @@ public class FoodController {
 //	 Delete by id 
 //	Question: Wont this change the whole menu and not whats just in the cart? 
 	@DeleteMapping("food/{id}")
-	public ResponseEntity<String> deleteStudent(@PathVariable int id) {
+	public ResponseEntity<String> deleteFood(@PathVariable int id) {
 			foodRepo.findById(id);
 //				.orElseThrow(() -> new ResourceNotFoundException("Student not found."));
 			
